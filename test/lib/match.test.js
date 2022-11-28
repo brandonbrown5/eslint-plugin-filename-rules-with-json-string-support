@@ -27,16 +27,25 @@ test('single regex', testRule({
   ],
 }));
 
-test('throws on unknown alias', (t) => t.throws(testRule({
+test('string regex', testRule({
   valid: [
     {
       code,
-      filename: '/foo/bar/module.js',
-      options: ['bla'],
+      filename: '/foo/bar/test.txt',
+      options: ['^test(?:\\..*)?$'],
     },
   ],
-  invalid: [],
-}), 'Unrecognized option "bla"\nOccurred while linting /foo/bar/module.js:1'));
+  invalid: [
+    {
+      code,
+      filename: '/foo/bar/test_.txt',
+      options: ['^test(?:\\..*)?$'],
+      errors: [
+        { message: "Filename 'test_.txt' does not match /^test(?:\\..*)?$/.", column: 1, line: 1 },
+      ],
+    },
+  ],
+}));
 
 ['camelcase', 'camelCase'].forEach((alias) => {
   test(`single alias - ${alias}`, testRule({
