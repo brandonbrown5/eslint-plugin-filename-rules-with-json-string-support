@@ -1,6 +1,6 @@
 {
-  "name": "eslint-plugin-filename-rules",
-  "version": "1.2.0",
+  "name": "eslint-plugin-filename-rules-with-json-string-support",
+  "version": "1.0.0",
   "description": "Enforce filename conventions for linted files",
   "main": "lib/index.js",
   "engines": {

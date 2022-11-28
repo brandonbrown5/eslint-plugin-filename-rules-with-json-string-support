@@ -46,6 +46,13 @@ You can also specify different options for different file extensions. In this ca
 ...
 ```
 
+To use in eslint.json file, you can specify the regex expressions as strings
+```json
+...
+"filename-rules/match": [2, "/^([a-z]+-)*[a-z]+(?:\..*)?$/"]
+...
+```
+
 ## License
 
 MIT
